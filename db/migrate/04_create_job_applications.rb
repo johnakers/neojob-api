@@ -6,12 +6,13 @@ class CreateJobApplications < ActiveRecord::Migration[7.2]
       t.string    :company_name, null: false
       t.string    :position_name, null: false
       t.integer   :interest_level, null: false
+      t.string    :current_status, default: 'pending', null: false
+      t.datetime  :applied_on
       t.string    :company_url
       t.string    :position_url
       t.string    :glassdoor_url
-      t.datetime  :applied_on, null: false
       t.string    :contact_name
-      t.integer   :current_status, default: :havent_applied
+      t.string    :contact_email
       t.text      :note
 
       t.timestamps

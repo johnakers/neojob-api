@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :authorize!, only: [:show, :update, :destroy]
 
   def create
+    user = User.create!(user_params)
+    user.login!
 
+    render json: current_user
   end
 
   def show
@@ -10,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    current_user.update!(user_params)
 
     render json: current_user
   end

@@ -8,16 +8,21 @@ User.destroy_all
 puts '--- Creating new data'
 
 user = User.create!(
+  id: '00000000-0000-0000-0000-000000000000',
   email: 'ellen.ripley@email.net',
   password: 'pass',
   timezone: 'Pacific Time (US & Canada)'
 )
 
-user.login!
+Session.create!(
+  id: '00000000-0000-0000-0000-000000000000',
+  user_id: user.id
+)
 
 user.job_applications.create!(
-  company_name: 'Weyland Yutani',
-  position_name: 'Warrant Officer',
+  id: '00000000-0000-0000-0000-000000000000',
+  company_name: 'Sony Playstation',
+  position_name: 'Software Engineer',
   applied_on: Time.now.utc,
   interest_level: 5
 )
@@ -28,3 +33,5 @@ puts "session: #{user.reload.session.id}"
 puts '==========================='
 
 puts 'Seeds completed'
+
+# curl -u ellen.ripley@email.net:00000000-0000-0000-0000-000000000000 localhost:3000/users/00000000-0000-0000-0000-000000000000

@@ -20,12 +20,13 @@ ActiveRecord::Schema[7.2].define(version: 4) do
     t.string "company_name", null: false
     t.string "position_name", null: false
     t.integer "interest_level", null: false
+    t.string "current_status", default: "pending", null: false
+    t.datetime "applied_on"
     t.string "company_url"
     t.string "position_url"
     t.string "glassdoor_url"
-    t.datetime "applied_on", null: false
     t.string "contact_name"
-    t.integer "current_status"
+    t.string "contact_email"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,8 +41,8 @@ ActiveRecord::Schema[7.2].define(version: 4) do
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.string "password", null: false
-    t.boolean "is_public", default: false
-    t.integer "goal_per_week", default: 1
+    t.boolean "is_public", default: false, null: false
+    t.integer "applications_per_week_goal", default: 1, null: false
     t.string "timezone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

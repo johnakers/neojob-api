@@ -11,6 +11,7 @@ user = User.create!(
   id: '00000000-0000-0000-0000-000000000000',
   email: 'ellen.ripley@email.net',
   password: 'pass',
+  display_name: 'Ellen',
   timezone: 'Pacific Time (US & Canada)'
 )
 

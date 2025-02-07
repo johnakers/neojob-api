@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     # bcrypt auth goes here
     if user&.password == session_params[:password]
       user.login!
-      render json: user.session
+      render json: user.session.to_json
     else
       head :forbidden
     end

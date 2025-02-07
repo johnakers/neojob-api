@@ -21,6 +21,6 @@ class JobApplication < ApplicationRecord
   private
 
   def remind_in_a_week!
-    JobApplications::RemindInAWeek.perform_now(job_application_id: id)
+    HaventAppliedReminderJob.perform_now(job_application_id: id)
   end
 end

@@ -12,7 +12,7 @@ gem "pg", "~> 1.1"
 
 # Coming soon...
 # gem "bcrypt", "~> 3.1.7"
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development, :test do
   gem "brakeman", require: false
